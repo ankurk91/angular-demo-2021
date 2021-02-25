@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@fortawesome/fontawesome-free/css/fontawesome.css";
+@import "~@fortawesome/fontawesome-free/css/solid.css";
+
+.app {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}
+
+.app-footer {
+  align-items: flex-end;
+  flex-direction: row;
+}
+
+ul.pagination {
+  justify-content: center;
+}
+
+.table thead th {
+  vertical-align: middle;
+}
+
+.required > label:after {
+  content: "*";
+  color: var(--red);
+}
+

@@ -5,14 +5,16 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './Auth/login/login.component';
 import { RegisterComponent } from './Auth/register/register.component';
-import { ForgotPasswordComponent } from './Auth/forgot-password/forgot-password.component'
+import { ForgotPasswordComponent } from './Auth/forgot-password/forgot-password.component';
+import { PostIndexComponent } from './Post/index/post-index.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    PostIndexComponent
   ],
   imports: [
     BrowserModule,

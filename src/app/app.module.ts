@@ -6,7 +6,8 @@ import {AppComponent} from './app.component';
 import {LoginComponent} from './Auth/login/login.component';
 import { RegisterComponent } from './Auth/register/register.component';
 import { ForgotPasswordComponent } from './Auth/forgot-password/forgot-password.component';
-import { PostIndexComponent } from './Post/index/post-index.component'
+import { PostIndexComponent } from './Post/index/post-index.component';
+import { PostCreateComponent } from './Post/create/post-create.component'
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PostIndexComponent } from './Post/index/post-index.component'
     LoginComponent,
     RegisterComponent,
     ForgotPasswordComponent,
-    PostIndexComponent
+    PostIndexComponent,
+    PostCreateComponent
   ],
   imports: [
     BrowserModule,

@@ -12,8 +12,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
-  {path: 'posts/:id', component: PostShowComponent},
   {path: 'posts/create', component: PostCreateComponent},
+  {path: 'posts/:id', component: PostShowComponent},
   {path: '**', redirectTo: '/'},
 ];
 

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, ParamMap} from "@angular/router";
 
 @Component({
   selector: 'app-post-show',
@@ -7,10 +8,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class PostShowComponent implements OnInit {
 
-  constructor() {
+  public postId: number;
+
+  constructor(private route: ActivatedRoute) {
+
   }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.postId = Number(params.get('id'));
+    });
   }
 
 }

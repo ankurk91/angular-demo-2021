@@ -4,16 +4,16 @@
     <div class="card mb-3">
       <div class="card-body">
         <h5 class="card-title">Log in to your account</h5>
-        <form method="POST" action="/">
+        <form method="POST" action="/" [formGroup]="form" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="input-email">E-mail</label>
-            <input id="input-email" type="email" class="form-control "
+            <input formControlName="email" id="input-email" type="email" class="form-control"
                    name="email" placeholder="E-mail" value="" required autofocus>
           </div>
 
           <div class="form-group">
             <label for="input-password">Password</label>
-            <input id="input-password" type="password"
+            <input formControlName="password" id="input-password" type="password"
                    class="form-control "
                    name="password" required placeholder="Password">
 
@@ -21,7 +21,7 @@
 
           <div class="form-group">
             <div class="custom-control custom-checkbox">
-              <input type="checkbox" name="remember"
+              <input formControlName="remember" type="checkbox" name="remember"
                      class="custom-control-input" id="input-remember">
               <label class="custom-control-label" for="input-remember">Remember me</label>
             </div>

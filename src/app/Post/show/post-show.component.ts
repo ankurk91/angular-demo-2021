@@ -8,7 +8,7 @@ import {ActivatedRoute, ParamMap} from "@angular/router";
 })
 export class PostShowComponent implements OnInit {
 
-  public postId: number;
+  public postId?: number;
 
   constructor(private route: ActivatedRoute) {
 

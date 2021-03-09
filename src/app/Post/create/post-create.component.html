@@ -2,23 +2,23 @@
 
 <div class="card">
   <div class="card-body">
-    <form method="post">
+    <form method="post" [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label>Title</label>
-        <input type="text" class="form-control">
+        <input formControlName="title" type="text" class="form-control">
       </div>
       <div class="form-group">
         <label>Body</label>
-        <textarea rows="4" class="form-control"></textarea>
+        <textarea formControlName="body" rows="4" class="form-control"></textarea>
       </div>
       <div class="form-group">
         <div class="custom-file">
-          <input type="file" class="custom-file-input" id="input-image">
+          <input (change)="onFileChange($event)" type="file" class="custom-file-input" id="input-image">
           <label class="custom-file-label" for="input-image">Choose an image</label>
         </div>
       </div>
       <div class="form-group form-check">
-        <input type="checkbox" accept="image/*" class="form-check-input" id="input-publish">
+        <input formControlName="publish" type="checkbox" accept="image/*" class="form-check-input" id="input-publish">
         <label class="form-check-label" for="input-publish">Publish</label>
       </div>
       <button type="submit" class="btn btn-primary">

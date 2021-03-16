@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {AuthService} from "../../Services/auth.service";
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 export class LoginComponent implements OnInit {
   public form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private auth: AuthService) {
     this.form = this.fb.group({
       email: '',
       password: '',
@@ -21,7 +22,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.form.value)
+    this.auth.login(this.form.getRawValue()).subscribe()
   }
 
 }

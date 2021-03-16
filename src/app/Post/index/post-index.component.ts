@@ -1,4 +1,10 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Post} from "../../Interfaces/post";
+import {Observable, of} from "rxjs";
+import {EnvironmentService} from "../../Services/environment.service";
+import {map, switchMap, switchMapTo} from "rxjs/operators";
+import {Category} from "../../Interfaces/category";
 
 @Component({
   selector: 'app-post-index',
@@ -7,10 +13,26 @@ import {Component, OnInit} from '@angular/core';
 })
 export class PostIndexComponent implements OnInit {
 
-  constructor() {
+  public posts: Observable<Post[]>;
+
+  constructor(private http: HttpClient, private env: EnvironmentService) {
   }
 
   ngOnInit(): void {
+    this.fetch();
   }
 
+  fetch() {
+    //todo add pagination
+    this.posts = this.http.get(this.env.apiUrl() + 'explore')
+      .pipe(map((response: any) => {
+        return response.data?.data;
+      }));
+  }
+
+  getCategories(categories: Category[]): string {
+    return categories.map((category: Category) => {
+      return category.name;
+    }).join(', ').trim();
+  }
 }

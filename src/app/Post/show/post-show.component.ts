@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap} from "@angular/router";
+import {PostService} from "../../Services/post.service";
+import {Post} from "../../Interfaces/post";
+import {Observable, of} from "rxjs";
 
 @Component({
   selector: 'app-post-show',
@@ -8,16 +11,15 @@ import {ActivatedRoute, ParamMap} from "@angular/router";
 })
 export class PostShowComponent implements OnInit {
 
-  public postId?: number;
+  public post?: Post;
 
-  constructor(private route: ActivatedRoute) {
-
+  constructor(private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.postId = Number(params.get('id'));
-    });
+    this.activatedRoute.data.subscribe((data: any) => {
+      this.post = data.post
+    })
   }
 
 }

@@ -1,8 +1,8 @@
 <div class="my-3">
-  <h1 class="">Sample blog post {{postId}}</h1>
-  <p class="text-muted">January 1, 2014 by <a href="#">Elon Musk</a></p>
+  <h1 class="">{{post.title}}</h1>
+  <p class="text-muted">{{post.published_at | date:'mediumDate'}} <a href="#">Elon Musk</a></p>
 </div>
 <hr>
 <p>
-  Sample content goes here
+  {{post.body}}
 </p>

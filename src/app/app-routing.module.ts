@@ -6,6 +6,7 @@ import {ForgotPasswordComponent} from "./Auth/forgot-password/forgot-password.co
 import {PostIndexComponent} from "./Post/index/post-index.component";
 import {PostCreateComponent} from "./Post/create/post-create.component";
 import {PostShowComponent} from "./Post/show/post-show.component";
+import {SinglePostResolver} from "./Resolvers/single-post.resolver";
 
 const routes: Routes = [
   {path: '', component: PostIndexComponent},
@@ -13,7 +14,13 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'posts/create', component: PostCreateComponent},
-  {path: 'posts/:id', component: PostShowComponent},
+  {
+    path: 'posts/:id',
+    resolve: {
+      post: SinglePostResolver
+    },
+    component: PostShowComponent
+  },
   {path: '**', redirectTo: '/'},
 ];
 

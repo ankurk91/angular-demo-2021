@@ -5,12 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {LoginComponent} from './Auth/login/login.component';
-import {RegisterComponent} from './Auth/register/register.component';
-import {ForgotPasswordComponent} from './Auth/forgot-password/forgot-password.component';
-import {PostIndexComponent} from './Post/index/post-index.component';
-import {PostCreateComponent} from './Post/create/post-create.component';
-import {PostShowComponent} from './Post/show/post-show.component'
+import {LoginComponent} from './Components/Auth/login/login.component';
+import {RegisterComponent} from './Components/Auth/register/register.component';
+import {ForgotPasswordComponent} from './Components/Auth/forgot-password/forgot-password.component';
+import {PostIndexComponent} from './Components/Post/index/post-index.component';
+import {PostCreateComponent} from './Components/Post/create/post-create.component';
+import {PostShowComponent} from './Components/Post/show/post-show.component'
 
 @NgModule({
   declarations: [

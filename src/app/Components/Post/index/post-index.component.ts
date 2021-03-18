@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Post} from "../../Interfaces/post";
+import {Post} from "../../../Interfaces/post";
 import {Observable, of} from "rxjs";
-import {EnvironmentService} from "../../Services/environment.service";
+import {EnvironmentService} from "../../../Services/environment.service";
 import {map, switchMap, switchMapTo} from "rxjs/operators";
-import {Category} from "../../Interfaces/category";
-import {PostService} from "../../Services/post.service";
+import {Category} from "../../../Interfaces/category";
+import {PostService} from "../../../Services/post.service";
 
 @Component({
   selector: 'app-post-index',

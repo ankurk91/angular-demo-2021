@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, ParamMap} from "@angular/router";
-import {PostService} from "../../../Services/post.service";
 import {Post} from "../../../Interfaces/post";
-import {Observable, of} from "rxjs";
+import {PostService} from "../../../Services/post.service";
 
 @Component({
   selector: 'app-post-show',
@@ -11,15 +10,20 @@ import {Observable, of} from "rxjs";
 })
 export class PostShowComponent implements OnInit {
 
-  public post?: Post;
+  public post: Post = {} as Post;
 
-  constructor(private activatedRoute: ActivatedRoute) {
+  constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
   }
 
   ngOnInit(): void {
-    this.activatedRoute.data.subscribe((data: any) => {
-      this.post = data.post
+    //todo this is ugly
+    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+      this.postService.show(Number(params.get('id'))).subscribe((post: Post) => {
+        this.post = post
+      })
     })
   }
+
+  getCategoryNames = this.postService.getCategoryNames
 
 }

@@ -1,10 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {Post} from "../../../Interfaces/post";
-import {Observable, of} from "rxjs";
-import {EnvironmentService} from "../../../Services/environment.service";
-import {map, switchMap, switchMapTo} from "rxjs/operators";
-import {Category} from "../../../Interfaces/category";
+import {Observable} from "rxjs";
 import {PostService} from "../../../Services/post.service";
 
 @Component({
@@ -23,9 +19,5 @@ export class PostIndexComponent implements OnInit {
     this.posts = this.postService.explore();
   }
 
-  getCategories(categories: Category[]): string {
-    return categories.map((category: Category) => {
-      return category.name;
-    }).join(', ').trim();
-  }
+  getCategoryNames = this.postService.getCategoryNames
 }

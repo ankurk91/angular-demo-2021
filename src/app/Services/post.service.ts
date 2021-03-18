@@ -4,6 +4,7 @@ import {map} from "rxjs/operators";
 import {EnvironmentService} from "./environment.service";
 import {Observable} from "rxjs";
 import {Post} from "../Interfaces/post";
+import {Category} from "../Interfaces/category";
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,11 @@ export class PostService {
       .pipe(map((response: any) => {
         return response.data;
       }))
+  }
+
+  getCategoryNames(categories: Category[]): string {
+    return categories.map((category: Category) => {
+      return category.name;
+    }).join(', ').trim();
   }
 }

@@ -5,10 +5,11 @@
     <div class="card">
       <img [src]="post.featured_image_thumb_url || '/assets/images/newspaper.svg'"
            class="card-img-top"
-           [alt]="post.title">
+           [alt]="post.title"
+           loading="lazy">
       <div class="card-body">
-        <strong class="d-inline-block mb-2">{{getCategories(post.categories)}}</strong>
-        <h3 class="card-title">
+        <strong class="d-inline-block mb-2 text-capitalize">{{getCategoryNames(post.categories)}}</strong>
+        <h3 class="card-title text-capitalize">
           <a [routerLink]="'/posts/' + post.id">{{post.title | slice:0:40}}</a>
         </h3>
         <div class="mb-1 text-muted">{{post.published_at | date:'mediumDate'}}</div>

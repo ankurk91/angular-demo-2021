@@ -6,22 +6,36 @@ import {ForgotPasswordComponent} from "./Components/Auth/forgot-password/forgot-
 import {PostIndexComponent} from "./Components/Post/index/post-index.component";
 import {PostCreateComponent} from "./Components/Post/create/post-create.component";
 import {PostShowComponent} from "./Components/Post/show/post-show.component";
-import {SinglePostResolver} from "./Resolvers/single-post.resolver";
 
 const routes: Routes = [
-  {path: '', component: PostIndexComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'forgot-password', component: ForgotPasswordComponent},
-  {path: 'posts/create', component: PostCreateComponent},
+  {
+    path: '',
+    component: PostIndexComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent
+  },
+  {
+    path: 'posts/create',
+    component: PostCreateComponent
+  },
   {
     path: 'posts/:id',
-    resolve: {
-      post: SinglePostResolver
-    },
     component: PostShowComponent
   },
-  {path: '**', redirectTo: '/'},
+  {
+    path: '**',
+    redirectTo: '/'
+  },
 ];
 
 @NgModule({

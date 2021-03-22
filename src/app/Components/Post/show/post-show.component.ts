@@ -10,17 +10,15 @@ import {PostService} from "../../../Services/post.service";
 })
 export class PostShowComponent implements OnInit {
 
-  public post: Post = {} as Post;
+  public post: Post;
 
   constructor(private activatedRoute: ActivatedRoute, private postService: PostService) {
   }
 
   ngOnInit(): void {
-    //todo this is ugly
-    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      this.postService.show(Number(params.get('id'))).subscribe((post: Post) => {
-        this.post = post
-      })
+    const postId = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.postService.show(postId).subscribe((post: Post) => {
+      this.post = post
     })
   }
 

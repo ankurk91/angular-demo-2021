@@ -1,15 +1,18 @@
 <div class="my-3" *ngIf="post">
   <h1 class="text-capitalize">{{post.title}}</h1>
-  <strong class="d-inline-block mb-2 text-capitalize">{{getCategoryNames(post.categories)}}</strong>
+  <strong class="d-inline-block mb-2 text-capitalize" *ngIf="post.categories.length">
+    {{getCategoryNames(post.categories)}}
+  </strong>
   <p class="text-muted">
     {{post.published_at | date:'mediumDate'}} by
     <span class="text-primary">{{post.user.name}}</span>
   </p>
+  <div class="text-center" *ngIf="post.featured_image_url">
+    <img class="img-fluid" [src]="post.featured_image_url" [alt]="post.title" loading="lazy">
+  </div>
+  <hr>
+  <p>
+    {{post.body}}
+  </p>
 </div>
-<div class="text-center">
-  <img [src]="post.featured_image_url" [alt]="post.title">
-</div>
-<hr>
-<p>
-  {{post.body}}
-</p>
+

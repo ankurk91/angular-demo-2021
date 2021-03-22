@@ -22,7 +22,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.auth.login(this.form.getRawValue()).subscribe()
+    this.auth.login(this.form.getRawValue()).subscribe((response: any) => {
+      //todo redirect
+      this.form.reset();
+    })
   }
 
 }

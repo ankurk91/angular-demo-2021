@@ -6,6 +6,8 @@ import {ForgotPasswordComponent} from "./Components/Auth/forgot-password/forgot-
 import {PostIndexComponent} from "./Components/Post/index/post-index.component";
 import {PostCreateComponent} from "./Components/Post/create/post-create.component";
 import {PostShowComponent} from "./Components/Post/show/post-show.component";
+import {GuestOnlyGuard} from "./Guards/guest-only.guard";
+import {PreventGuestGuard} from "./Guards/prevent-guest.guard";
 
 const routes: Routes = [
   {
@@ -14,19 +16,23 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [GuestOnlyGuard]
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [GuestOnlyGuard]
   },
   {
     path: 'forgot-password',
-    component: ForgotPasswordComponent
+    component: ForgotPasswordComponent,
+    canActivate: [GuestOnlyGuard]
   },
   {
     path: 'posts/create',
-    component: PostCreateComponent
+    component: PostCreateComponent,
+    canActivate: [PreventGuestGuard]
   },
   {
     path: 'posts/:id',

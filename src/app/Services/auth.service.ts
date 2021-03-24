@@ -35,6 +35,11 @@ export class AuthService {
       }));
   }
 
+  public forgotPassword(payload: any) {
+    return this.http
+      .post(this.env.apiUrl() + 'password/email', payload);
+  }
+
   public isLoggedIn(): boolean {
     return !!this.tokenService.getAccessToken()
   }
